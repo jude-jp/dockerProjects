@@ -1,0 +1,13 @@
+FROM php:apache
+
+RUN echo 'FROM done !'
+
+COPY . /var/www/html/
+
+RUN ["echo", "COPY done !"]
+
+RUN ["ls"]
+
+RUN ls
+
+EXPOSE 81
