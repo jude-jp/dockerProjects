@@ -6,4 +6,4 @@ RUN apt-get update; apt-get install -y vim;
 
 COPY . /var/www/html/
 
-EXPOSE 81
+EXPOSE 80
