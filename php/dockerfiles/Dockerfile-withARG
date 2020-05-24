@@ -4,4 +4,4 @@ FROM php:${VERSION}
 
 COPY . /var/www/html/
 
-EXPOSE 81
+EXPOSE 80

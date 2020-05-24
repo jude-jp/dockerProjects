@@ -10,4 +10,4 @@ RUN ["ls"]
 
 RUN ls
 
-EXPOSE 81
+EXPOSE 80
