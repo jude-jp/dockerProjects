@@ -4,6 +4,6 @@ COPY . /var/www/html/
 
 EXPOSE 80
 
-ENTRYPOINT ["php", "-f"]
+ENTRYPOINT ["php"]
 
-CMD ["/var/www/html/index.php"]
+CMD ["-f", "/var/www/html/index.php"]
