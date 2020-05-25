@@ -1,0 +1,9 @@
+FROM php:apache
+
+WORKDIR /var/www/html/
+
+RUN sed -i '1s/^/ServerName localhost\n/' /etc/apache2/apache2.conf
+
+COPY . .
+
+EXPOSE 80
