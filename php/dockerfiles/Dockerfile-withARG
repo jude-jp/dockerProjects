@@ -1,8 +1,8 @@
 ARG VERSION=apache
 
-ARG TARGETPLATFORM 
-
 FROM php:${VERSION}
+
+ARG TARGETPLATFORM 
 
 RUN echo "Building for $TARGETPLATFORM platform"
 
