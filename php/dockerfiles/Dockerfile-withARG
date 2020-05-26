@@ -4,7 +4,7 @@ ARG TARGETPLATFORM
 
 FROM php:${VERSION}
 
-RUN "Building for $TARGETPLATFORM platform"
+RUN echo "Building for $TARGETPLATFORM platform"
 
 RUN sed -i '1s/^/ServerName localhost\n/' /etc/apache2/apache2.conf
 
