@@ -1,9 +1,13 @@
 ARG VERSION=apache
 
+ARG PRINT 'This text replace hello world by default'
+
 FROM php:${VERSION}
 
 RUN sed -i '1s/^/ServerName localhost\n/' /etc/apache2/apache2.conf
 
 COPY . /var/www/html/
+
+RUN sed -i s/'hello world'/${PRINT}/g /var/www/html/index.php
 
 EXPOSE 80
