@@ -1,6 +1,6 @@
 ARG VERSION=apache
 
-ARG PRINT 'This text replace hello world by default'
+ARG PRINT "This text replace hello world by default"
 
 FROM php:${VERSION}
 
