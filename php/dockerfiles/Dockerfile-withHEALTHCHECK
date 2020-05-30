@@ -4,6 +4,8 @@ RUN sed -i '1s/^/ServerName localhost\n/' /etc/apache2/apache2.conf
 
 COPY . /var/www/html/
 
+STOPSIGNAL SIGTERM
+
 HEALTHCHECK --retries=1 CMD /etc/init.d/apache2 status
 
 EXPOSE 80
