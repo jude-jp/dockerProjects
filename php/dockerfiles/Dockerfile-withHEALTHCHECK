@@ -4,8 +4,9 @@ RUN sed -i '1s/^/ServerName localhost\n/' /etc/apache2/apache2.conf
 
 COPY . /var/www/html/
 
-STOPSIGNAL SIGUSER1
-
 HEALTHCHECK --retries=1 CMD /etc/init.d/apache2 status
+
+# In order to keep running the container
+CMD tail -f /dev/null
 
 EXPOSE 80
