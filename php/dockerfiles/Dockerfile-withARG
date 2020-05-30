@@ -1,8 +1,8 @@
 ARG VERSION=apache
 
-ARG TARGETPLATFORM=arm
-
 FROM php:${VERSION}
+
+ARG TARGETPLATFORM=arm
 
 RUN echo "Building for linux/$TARGETPLATFORM platform"
 
