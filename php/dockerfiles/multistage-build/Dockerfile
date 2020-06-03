@@ -6,4 +6,4 @@ COPY ./java/ $APPDIR
 
 RUN javac $APPDIR/HelloWorld.java
 
-CMD ["java","$APPDIR/HelloWorld"]
+CMD ["java","${APPDIR}/HelloWorld"]
