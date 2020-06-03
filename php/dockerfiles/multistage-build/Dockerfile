@@ -1,6 +1,6 @@
 FROM openjdk:7
 
-COPY /app/java/HelloWorld.java .
+COPY ./java/ .
 
 RUN javac HelloWorld.java
 
