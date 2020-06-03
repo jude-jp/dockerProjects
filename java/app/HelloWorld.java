@@ -1,4 +1,4 @@
-package app.java;
+package app;
 
 public class HelloWorld {
 
