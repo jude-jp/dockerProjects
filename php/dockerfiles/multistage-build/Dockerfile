@@ -1,9 +1,9 @@
 FROM openjdk:7
 
-WORKDIR /app/java
+ARG APPDIR=/app/java
 
-COPY ./java/ .
+COPY ./java/ ${APPDIR}
 
-RUN javac HelloWorld.java
+RUN javac ${APPDIR}/HelloWorld.java
 
-CMD ["java","HelloWorld"]
+CMD ["java","${APPDIR}/HelloWorld"]
