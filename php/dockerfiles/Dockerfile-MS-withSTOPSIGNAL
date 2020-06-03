@@ -1,3 +1,0 @@
-FROM judejp/helloworld-php-arm:base
-
-STOPSIGNAL SIGKILL
