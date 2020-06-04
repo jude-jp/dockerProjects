@@ -1,11 +1,6 @@
 FROM openjdk:7
-
-ARG APPDIR=app/java
-
+ARG APPDIR=app
 ENV APPDIR $APPDIR
-
-COPY ./java/ $APPDIR
-
+COPY . $APPDIR
 RUN javac $APPDIR/HelloWorld.java
-
 CMD java ${APPDIR}/HelloWorld
