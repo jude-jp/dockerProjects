@@ -4,7 +4,7 @@ RUN sed -i '1s/^/ServerName localhost\n/' /etc/apache2/apache2.conf
 
 RUN echo 'FROM done !'
 
-COPY . /var/www/html/
+COPY ./index.php /var/www/html/
 
 RUN ["echo", "COPY done !"]
 
