@@ -5,5 +5,8 @@ $db = new dbHandler();
 $sqlQuery = "SELECT firstname FROM users";
 $results = $db->executeQuery($sqlQuery);
 
-echo "hello world ".$results[0]["firstname"];
+$resultsSize = count($results);
+$randomNumber = rand(0, $resultsSize-1);
+
+echo "hello world ".$results[$randomNumber]["firstname"];
 ?>
