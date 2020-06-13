@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+    webapp:
+        build:
+            context: .
+            dockerfile: random-named-helloworld.dockerfile
+        ports:
+            - "8080:80"
+        depends_on:
+            - db
+        links:
+            - db
+    db:
+        image: mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+        volumes:
+            - ./db/init:/docker-entrypoint-initdb.d
+            - /Users/jude/docker/db/mysql/data:/var/lib/mysql
+    
+    dbvisualiser:
+        image: phpmyadmin/phpmyadmin
+        links:
+            - db
+        ports:
+            - "8081:80"
+
+            
