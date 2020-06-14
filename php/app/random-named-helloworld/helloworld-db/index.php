@@ -1,9 +1,8 @@
 <?php
-require_once dirname(__file__)."/services/dbHandler.php";
+require_once dirname(__file__)."/controllers/helloworldController.php";
 
-$db = new dbHandler();
-$sqlQuery = "SELECT firstname FROM users";
-$results = $db->executeQuery($sqlQuery);
+$controller = new $HelloWorldController();
+$results = $controller->getFirstNames();
 
 $resultsSize = count($results);
 $randomNumber = rand(0, $resultsSize-1);
