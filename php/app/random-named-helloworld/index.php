@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__file__)."/controllers/helloworldController.php";
+require_once dirname(__file__)."/controllers/HelloWorldController.class.php";
 
 $controller = new HelloWorldController();
 $results = $controller->getFirstNames();

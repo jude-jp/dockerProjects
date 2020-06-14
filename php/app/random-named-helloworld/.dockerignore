@@ -1,0 +1,10 @@
+# Ignore YAML files
+*.yml
+*.yaml
+
+# Ignore dockerfiles
+*.dockerfile
+Dockerfile
+
+# Ignore .md files
+*.md
