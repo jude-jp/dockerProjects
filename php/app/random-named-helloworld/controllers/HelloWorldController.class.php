@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__file__)."/../models/helloworldModel.php";
+require_once dirname(__file__)."/../models/HelloWorldModel.class.php";
 
 class HelloWorldController{
 

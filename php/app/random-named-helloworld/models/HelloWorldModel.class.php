@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__file__)."/../services/dbHandler.php";
+require_once dirname(__file__)."/../services/DBHandler.class.php";
 
 class HelloWorldModel{
 

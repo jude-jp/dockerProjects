@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__file__)."/controllers/helloworldController.php";
 
-$controller = new $HelloWorldController();
+$controller = new HelloWorldController();
 $results = $controller->getFirstNames();
 
 $resultsSize = count($results);
