@@ -11,27 +11,44 @@ define("DB_PASSWORD", $_ENV['DB_PASSWORD']);
 
 class DBHandler {
 
-	public function __construct(){}
+  private $db;
+
+	public function __construct(){
+    $this->db = $this->getIDConnexion(DB_NAME);
+  }
 	
-	public function executeQuery($query){
+	public function executeSelectQuery($query){
 
-    $db = $this->getIDConnexion(DB_NAME);
-    $sth = $db->prepare($query);
-    $sth->execute();
+    try {
+      $sth = $this->db->prepare($query);
+      $sth->execute();
+  
+      $result = $sth->fetchAll();
+      return $result;
 
-    $result = $sth->fetchAll();
+    } catch (PDOException $e) {
+      die($query . "<br>" . $e->getMessage()); 
+    }
+  }
 
-    return $result;
+  public function executeInsertQuery($query){
+
+    try {
+      $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      return $this->db->exec($query);
+    } catch(PDOException $e) {
+      die($query . "<br>" . $e->getMessage()); 
+    }
   }
   
   public function executeScript($db, $filePath){
 
     echo "> Processing script $filePath execution...\n";
-
-    $query = file_get_contents($filePath);
-    $stmt = $db->prepare($query);
 		
 		if($db) {
+
+      $query = file_get_contents($filePath);
+      $stmt = $this->db->prepare($query);
 
       if ($stmt->execute()){
         echo "> script $filePath execution done.\n";

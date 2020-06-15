@@ -10,11 +10,11 @@ class HelloWorldController{
     }
 
     function getFirstNames(){
-        return $this->getModel()->getFirstNames();
+        return $this->model->getFirstNames();
     }
 
-    public function getModel(){
-        return $this->model;
+    function insertFirstName($value){
+        return $this->model->insertFirstName($value);
     }
 }
 
