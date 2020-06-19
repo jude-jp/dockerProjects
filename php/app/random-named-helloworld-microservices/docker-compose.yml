@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:
+    printui:
+        build:
+            context: ui/printUI
+        ports:
+            - "8080:80"
+        depends_on:
+            - getname_api
+    insertui:
+        build: 
+            context: ui/insertUI
+        ports: 
+            - "8081:80"
+        depends_on: 
+            - insertname_ui
+            
+    getname_api:
+        build:
+            context: api/getNameAPI
+        ports:
+            - "8085:80"
+        depends_on: 
+            - db
+
+    insertname_ui:
+        build: 
+            context: api/insertNameAPI
+        ports: 
+            - "8086:80"
+        depends_on: 
+            - db
+    db:
+        image: mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+        volumes:
+            - ./db/init:/docker-entrypoint-initdb.d
+            - /Users/jude/docker/db/mysql/data:/var/lib/mysql
+    
+    dbvisualiser:
+        image: phpmyadmin/phpmyadmin
+        links:
+            - db
+        ports:
+            - "8082:80"
+
+            
