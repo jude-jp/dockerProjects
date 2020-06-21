@@ -11,7 +11,7 @@ if ($response != FALSE) {
     $resultsSize = count($results);
     $randomNumber = rand(0, $resultsSize-1);
     
-    echo "hello world " . $results[$randomNumber]["firstname"];
+    echo "Hello, " . $results[$randomNumber]["firstname"] . ".";
 } else {
     echo "API non disponible...";
 }

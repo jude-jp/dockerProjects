@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__file__)."/controllers/HelloWorldController.class.php";
+define("API_INSERTNAME_NAME", $_ENV["API_INSERTNAME_NAME"]);
 
 session_start();
 
@@ -7,8 +7,21 @@ $firstname_value = $_POST["firstName"];
 
 if(isset($firstname_value)){
 
-    $controller = new HelloWorldController();
-    if($controller->insertFirstName($firstname_value) > 0){
+    $url = "http://" . API_INSERTNAME_NAME . "/user/firstname";
+
+    $opts = array('http' =>
+        array(
+            'method'  => 'POST',
+            'content' => $firstname_value,
+            'timeout' => 60
+        )
+    );
+                       
+    $context  = stream_context_create($opts);
+
+    $response = file_get_contents($url, FALSE, $context);
+
+    if(response != FALSE){
         $_SESSION["succes"] = true;
     } else {
         $_SESSION["succes"] = false;

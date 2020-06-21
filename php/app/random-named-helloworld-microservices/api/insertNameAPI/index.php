@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         case '' :
             break;
         case '/user/firstname' :
-            $results = $controller->getFirstNames();
+            $results = $controller->insertFirstName($_POST["firstname"]);
             break;
         default:
             http_response_code(404);

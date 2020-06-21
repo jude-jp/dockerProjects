@@ -3,18 +3,22 @@ version: "3.8"
 services:
     printui:
         build:
-            context: ui/printUI
+            context: ui/getNameUI
         ports:
             - "8080:80"
+        environment:
+            - API_GETNAME_NAME=getname_api
         depends_on:
             - getname_api
     insertui:
         build: 
-            context: ui/insertUI
+            context: ui/insertNameUI
         ports: 
             - "8081:80"
+        environment:
+            - API_INSERTNAME_NAME=insertname_api
         depends_on: 
-            - insertname_ui
+            - insertname_api
             
     getname_api:
         build:
@@ -24,7 +28,7 @@ services:
         depends_on: 
             - db
 
-    insertname_ui:
+    insertname_api:
         build: 
             context: api/insertNameAPI
         ports: 
@@ -45,5 +49,3 @@ services:
             - db
         ports:
             - "8082:80"
-
-            
