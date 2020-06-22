@@ -4,7 +4,7 @@ session_start();
 
 <form action="insertFirstName.php" method="post">
     <p>Enter first name : 
-        <input type="text" name="firstName" />
+        <input type="text" name="firstname" />
         <input type="submit" value="Insert">
     </p>
 </form>
@@ -12,9 +12,15 @@ session_start();
 
 if(isset($_SESSION["succes"])){
     if($_SESSION["succes"]){
-        echo "Inseré avec succes !";
+
+        if($_SESSION["responseCode"] === 1){
+            echo "Successfully inserted !";
+        }else {
+            echo "Already inserted !";
+        }
+
     } else {
-        echo "Erreur durant l'insertion";
+        echo "Error during communication with API";
     }
 } 
 

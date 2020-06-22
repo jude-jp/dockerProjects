@@ -23,7 +23,10 @@ class DBHandler {
       $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       return $this->db->exec($query);
     } catch(PDOException $e) {
-      die($query . "<br>" . $e->getMessage()); 
+      //TODO logging
+      //die($query . "<br>" . $e->getMessage());
+      $errorCode = $this->db->errorInfo();
+      return $errorCode[1];
     }
   }
 	

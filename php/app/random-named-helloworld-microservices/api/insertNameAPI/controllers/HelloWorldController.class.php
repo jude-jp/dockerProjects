@@ -10,7 +10,14 @@ class HelloWorldController{
     }
 
     function insertFirstName($value){
-        return $this->model->insertFirstName($value);
+        $response =  $this->model->insertFirstName($value);
+
+        $http_response;
+        if (isset($response)) {
+            $http_response = array('status' => 200, 'payload' => $response);
+        }
+
+        return json_encode($http_response);
     }
 }
 
