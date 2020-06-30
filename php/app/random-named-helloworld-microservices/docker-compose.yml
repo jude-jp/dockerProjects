@@ -41,7 +41,7 @@ services:
             - MYSQL_ROOT_PASSWORD=root
         volumes:
             - ./db/init:/docker-entrypoint-initdb.d
-            - /Users/jude/docker/db/mysql/data:/var/lib/mysql
+            - dbdata:/var/lib/mysql
     
     dbvisualiser:
         image: phpmyadmin/phpmyadmin
@@ -49,3 +49,5 @@ services:
             - db
         ports:
             - "8082:80"
+volumes: 
+    dbdata:
